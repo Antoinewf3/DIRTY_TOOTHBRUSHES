@@ -10,9 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_29_130300) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_29_142617) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookings", force: :cascade do |t|
+    t.date "start_date"
+    t.date "end_date"
+    t.string "status"
+    t.bigint "users_id", null: false
+    t.bigint "toothbrushes_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["toothbrushes_id"], name: "index_bookings_on_toothbrushes_id"
+    t.index ["users_id"], name: "index_bookings_on_users_id"
+  end
+
+  create_table "toothbrushes", force: :cascade do |t|
+    t.string "category"
+    t.integer "price"
+    t.bigint "users_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["users_id"], name: "index_toothbrushes_on_users_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -22,8 +43,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_29_130300) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "first_name"
+    t.string "last_name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bookings", "toothbrushes", column: "toothbrushes_id"
+  add_foreign_key "bookings", "users", column: "users_id"
+  add_foreign_key "toothbrushes", "users", column: "users_id"
 end
