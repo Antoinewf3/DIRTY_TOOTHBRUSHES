@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'booking/new'
+  get 'toothbrush/index'
+  get 'toothbrush/show'
+  get 'toothbrush/new'
+  get 'toothbrush/edit'
+  get 'toothbrush/update'
+  get 'toothbrush/destroy'
+  get 'toothbrush/create'
   devise_for :users
   root to: "pages#home"
   
