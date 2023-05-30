@@ -1,2 +1,4 @@
 <h1>Toothbrush#index</h1>
-<p>Find me in app/views/toothbrush/index.html.erb</p>
+<% @toothbrushes.each |toothbrush|%>
+  <%= link_to "#{toothbrush.}"%>
+<% end %>
