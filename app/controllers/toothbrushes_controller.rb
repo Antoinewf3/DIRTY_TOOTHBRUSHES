@@ -1,4 +1,4 @@
-class ToothbrushController < ApplicationController
+class ToothbrushesController < ApplicationController
   def index
     @toothbrushs = Toothbrush.all
   end
