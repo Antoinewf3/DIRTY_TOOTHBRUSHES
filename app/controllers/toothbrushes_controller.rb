@@ -1,6 +1,7 @@
 class ToothbrushesController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
   def index
-    @toothbrushs = Toothbrush.all
+    @toothbrushes = Toothbrush.all
   end
 
   def show
