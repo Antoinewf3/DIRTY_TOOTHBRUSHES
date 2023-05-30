@@ -1,0 +1,6 @@
+<div class="container">
+  <h1 class="text-center">Welcome to your Dashboard</h1>
+  <% @my_bookings.each do |booking| %>
+    <%= cl_image_tag booking.toothbrush.photo.key, height: 300, width: 400, crop: :fill %>
+  <% end %>
+</div>
