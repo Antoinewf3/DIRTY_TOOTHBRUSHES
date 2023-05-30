@@ -5,3 +5,10 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+Toothbrush.destroy_all
+Toothbrush.create(category: "Used", price: 17)
+Toothbrush.create(category: "Used+", price: 15)
+Toothbrush.create(category: "Used++", price: 13)
+Toothbrush.create(category: "Used-", price: 20)
+puts "Created #{Toothbrush.count} toothbrushes"

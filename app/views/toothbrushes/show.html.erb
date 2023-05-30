@@ -1,2 +1,15 @@
 <h1>Toothbrush#show</h1>
 <p>Find me in app/views/toothbrush/show.html.erb</p>
+<div class="container">
+  <h1>My restaurants</h1>
+    <div class="mb-3">
+    <li>
+    <%= cl_image_tag("cockroach", width: 400, height: 300, crop: :fill) %>
+    <strong>Category:</strong> <%= link_to toothbrush.category, toothbrush_path(toothbrush) %>
+    <strong>Price</strong> <%= toothbrush.price %>
+    </li>
+    </div>
+    <div class="mb-3">
+    <%= link_to 'Add a Restaurant', new_restaurant_path %>
+    </div>
+</div>
