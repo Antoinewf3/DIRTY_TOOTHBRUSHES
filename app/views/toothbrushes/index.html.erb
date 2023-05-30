@@ -1,1 +1,24 @@
-<h1>Toothbrush#index</h1>
+<% @toothbrushes.each do |toothbrush|%>
+            <%= link_to toothbrush_path(toothbrush) do %>
+
+<div class="card">
+<div class="image"><%= link_to toothbrush_path(toothbrush) do %></div>
+  <span class="title">Cool Chair</span>
+  <span class="price">$100</span>
+</div
+<% end %>
+<% end %>
+
+
+          <%# <div class="card">
+          <div class="card-img"> </div>
+          <ul class="social-media">
+     <li><svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1024 1024" class="icon">
+        </svg></li>
+      </ul>
+  <div class="card-info">
+    <p class="title">Name</p>
+    <p class ="price">price = 65$
+    <p class="subtitle">descr</p>
+  </div>
+</div> %>
