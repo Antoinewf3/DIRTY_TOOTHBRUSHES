@@ -7,6 +7,7 @@ class ToothbrushesController < ApplicationController
   def show
     # @review = Review.new
     @toothbrush = Toothbrush.find(params[:id])
+    @booking = Booking.new(toothbrush: @toothbrush)
   end
 
   def new
