@@ -39,6 +39,9 @@
   padding-block: 3px;
  }
 
+ a {
+  text-decoration: none;
+ }
 
  .text-body {
   color: rgb(134, 134, 134);
@@ -67,6 +70,13 @@
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  margin: 10px;
+}
+
+.image-hover:hover {
+    transform: scale(1.2); /* Augmente la taille de l'image */
+  transition: transform 0.3s ease; /* Ajoute une transition fluide */
 }
 
 .card-trip > img {
