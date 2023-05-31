@@ -1,10 +1,10 @@
 <div class="container">
   <div class="mb-3 mt-3">
-      <%= simple_form_for @toothbrush do |f| %>
-        <%= f.input :category %>
-        <%= f.input :price %>
-        <%= f.input :photo %>
-        <%= f.submit class:"btn" %>
+    <div data-controller="dynamic-booking-price" data-dynamic-booking-price-price-value="<%= @booking%>">
+      <%= simple_form_for [@toothbrush, @booking] do |f| %>
+        <%= f.input :start_date, as: :string, input_html: { data: { controller: "datepicker" } } %>
+        <%= f.input :end_date,  as: :string, input_html: { data: { controller: "datepicker" }} %>
+        <%= f.submit "Book it now" %>
       <% end %>
-  </div>
+    </div>
 </div>

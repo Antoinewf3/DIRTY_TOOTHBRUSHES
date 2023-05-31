@@ -17,7 +17,7 @@ class ToothbrushesController < ApplicationController
   def create
     @toothbrush = Toothbrush.new(toothbrush_params)
     if @toothbrush.save
-      redirect_to root_path
+      redirect_to new_toothbrush_path(@toothbrush)
     else
       render :new, status: :unprocessable_entity
     end
@@ -41,6 +41,6 @@ class ToothbrushesController < ApplicationController
   private
 
   def toothbrush_params
-    params.require(:toothbrush).permit(:category, :price)
+    params.require(:toothbrush).permit(:category, :price, :photo)
   end
 end
