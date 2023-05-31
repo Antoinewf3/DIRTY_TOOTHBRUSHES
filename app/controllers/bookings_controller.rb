@@ -1,6 +1,7 @@
 class BookingsController < ApplicationController
   def new
     @booking = Booking.new
+    @toothbrush = Toothbrush.find(params[:toothbrush_id])
   end
 
   def create
