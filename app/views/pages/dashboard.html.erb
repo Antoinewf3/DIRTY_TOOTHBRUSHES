@@ -3,4 +3,10 @@
   <% @my_bookings.each do |booking| %>
     <%= cl_image_tag booking.toothbrush.photo.key, height: 300, width: 400, crop: :fill %>
   <% end %>
+  <% @toothbrushes.each do |toothbrush| %>
+    <%= toothbrush.title %>
+    <% toothbrush.bookings.each do |booking| %>
+      <%= booking.start_date %>
+    <% end %>
+  <% end %>
 </div>

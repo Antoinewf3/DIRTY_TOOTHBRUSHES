@@ -1,3 +1,4 @@
+<h1>Toothbrush#index</h1>
 <% @toothbrushes.each do |toothbrush|%>
   <%= link_to toothbrush_path(toothbrush) do %>
     <%= cl_image_tag toothbrush.photo.key, height: 300, width: 400, crop: :fill %>
