@@ -1,24 +1,27 @@
-<% @toothbrushes.each do |toothbrush|%>
-            <%= link_to toothbrush_path(toothbrush) do %>
-
-<div class="card">
-<div class="image"><%= link_to toothbrush_path(toothbrush) do %></div>
-  <span class="title">Cool Chair</span>
-  <span class="price">$100</span>
-</div
-<% end %>
-<% end %>
-
-
-          <%# <div class="card">
-          <div class="card-img"> </div>
-          <ul class="social-media">
-     <li><svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1024 1024" class="icon">
-        </svg></li>
-      </ul>
-  <div class="card-info">
-    <p class="title">Name</p>
-    <p class ="price">price = 65$
-    <p class="subtitle">descr</p>
+<div class="container">
+  <div class="cards">
+    <% @toothbrushes.each do |toothbrush|%>
+      <%= link_to toothbrush_path(toothbrush) do %>
+        <div class="card-trip">
+          <%= cl_image_tag toothbrush.photo.key, height: 130, width: 180, crop: :fill %>
+          <div class="card-trip-infos">
+            <div>
+              <h2>Title here</h2>
+            </div>
+            <h2 class="card-trip-pricing">£99.99</h2>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
   </div>
+</div>
+
+
+<%# <div class="card">
+    <p class="text-title">Card title</p>
+    <p class="text-body">description</p>
+    <div class="price"></div>
+  </div>
+  <button class="card-button">book</button>
 </div> %>
+
