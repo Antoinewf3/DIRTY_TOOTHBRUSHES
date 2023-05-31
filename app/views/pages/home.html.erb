@@ -1,2 +1,11 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<section class="hero">
+  <header id="header">
+  </header>
+  <header class="hero-header">
+    <h1 class="hero-title">Like Toothbrushes ? Wanna try a new experience ?</h1>
+  </header>
+  <footer class="hero-footer">
+    <%= link_to 'View toothbrushes available', toothbrushes_path, class: "button button-primary" %>
+    <%= link_to 'Rent my toothbrush', dashboard_path, class: "button" %>
+  </footer>
+</section>
