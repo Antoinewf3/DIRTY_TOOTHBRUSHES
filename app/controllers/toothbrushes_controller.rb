@@ -16,20 +16,22 @@ class ToothbrushesController < ApplicationController
 
   def create
     @toothbrush = Toothbrush.new(toothbrush_params)
+    @toothbrush.user = current_user
     if @toothbrush.save
-      redirect_to root_path
+      redirect_to dashboard_path
     else
       render :new, status: :unprocessable_entity
     end
   end
 
-  def edit
-    @toothbrush = Toothbrush.find(params[:id])
-  end
-
   def update
     @toothbrush = Toothbrush.find(params[:id])
-    @toothbrush.update(params[:toothbrush])
+
+    if @toothbrush.update(toothbrush_params)
+      redirect_to dashboard_path, notice: "Toothbrush updated"
+    else
+      render :dasboard, status: :unprocessable_entity
+    end
   end
 
   def destroy
@@ -41,6 +43,6 @@ class ToothbrushesController < ApplicationController
   private
 
   def toothbrush_params
-    params.require(:toothbrush).permit(:category, :price)
+    params.require(:toothbrush).permit(:category, :content, :title, :price, :photo)
   end
 end

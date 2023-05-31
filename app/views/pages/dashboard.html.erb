@@ -1,6 +1,25 @@
 <div class="container">
   <h1 class="text-center">Welcome to your Dashboard</h1>
+  <h2>my Bookings</h2>
   <% @my_bookings.each do |booking| %>
     <%= cl_image_tag booking.toothbrush.photo.key, height: 300, width: 400, crop: :fill %>
+  <% end %>
+  <% @toothbrushes.each do |toothbrush| %>
+    <h2>My toothbrushes</h2>
+    <%= toothbrush.title %>
+    <%= cl_image_tag toothbrush.photo.key, height: 300, width: 400, crop: :fill %>
+    <div class="col-md-6">
+      <%= simple_form_for(toothbrush) do |f| %>
+        <%= f.input :title %>
+        <%= f.input :category, collection: ['Electric', 'Standard'], include_blank: 'Select Category'%>
+        <%= f.input :price %>
+        <%= f.button :submit, "Update Toothbrush", class: 'btn btn-primary' %>
+    <% end %>
+    <h2>My rented toothbrushes</h2>
+    <% toothbrush.bookings.each do |booking| %>
+      <%= booking.start_date %>
+      <%= booking.start_date %>
+      <%= cl_image_tag toothbrush.photo.key, height: 300, width: 400, crop: :fill %>
+    <% end %>
   <% end %>
 </div>
