@@ -35,8 +35,8 @@ body {
 	height: 100vh;
 	padding: 1em;
 	box-sizing: border-box;
-	color: white;
-	background: url(https://images.unsplash.com/photo-1500417148159-68083bd7333a) center center no-repeat;
+	color: black;
+	background: url(https://res.cloudinary.com/dhngy6nkx/image/upload/v1685539696/toothbrush_hands.jpg) center center no-repeat;
 	background-size: cover;
 }
 
@@ -53,6 +53,7 @@ body {
 .hero-footer {
 	display: flex;
 	margin-bottom: 1em;
+  text-decoration: none;
 }
 
 .button {
@@ -62,7 +63,6 @@ body {
 	border: .1em solid white;
   display: flex;
   justify-content: center;
-
 }
 
 	.button-primary {
