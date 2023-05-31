@@ -2,79 +2,154 @@
 @import "home";
 @import "components/_cardshow";
 
-.cardindex {
-  position: relative;
-  width: 11.875em;
-  height: 16.5em;
-  box-shadow: 0px 1px 13px rgba(0,0,0,0.1);
-  cursor: pointer;
-  transition: all 120ms;
+.container {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #fff;
-  padding: 0.5em;
-  padding-bottom: 3.4em;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: auto;
+  align-content: start
 }
 
-.cardindex::after {
-  content: "Add to Cart";
-  padding-top: 1.25em;
-  padding-left: 1.25em;
-  position: absolute;
-  left: 0;
-  bottom: -60px;
-  background: #00AC7C;
-  color: #fff;
-  height: 2.5em;
-  width: 90%;
-  transition: all 80ms;
-  font-weight: 600;
-  text-transform: uppercase;
-  opacity: 0;
-}
+.card-index {
+  width: 190px;
+  height: 350px;
+  border-radius: 20px;
+  background: #f5f5f5;
+  position: relative;
+  border: 2px solid #c3c6ce;
+  transition: 0.5s ease-out;
+  overflow: visible;
+ }
 
-.cardindex .titleindex {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.9em;
-  position: absolute;
-  left: 0.625em;
-  bottom: 1.875em;
-  font-weight: 400;
-  color: #000;
-}
-
-.cardindex .priceindex {
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  font-size: 0.9em;
-  position: absolute;
-  left: 0.625em;
-  bottom: 0.625em;
-  color: #000;
-}
-
-.cardindex:hover::after {
-  bottom: 0;
-  opacity: 1;
-}
-
-.cardindex:active {
-  transform: scale(0.98);
-}
-
-.cardindex:active::after {
-  content: "Added !";
-  height: 3.125em;
-}
-
-.textindex {
-  max-width: 55px;
-}
-
-.imageindex {
-  background: rgb(241, 241, 241);
+ .card > img {
+  height: 175px;
   width: 100%;
+  border-radius: 20px;
+  object-fit: cover;
+}
+
+ .card {
+  color: black;
   height: 100%;
+  gap: 2.5em;
   display: grid;
-  place-items: center;
+  place-content: center;
+  border-radius: 20px;
+  padding-block: 3px;
+ }
+
+ a {
+  text-decoration: none;
+ }
+
+ .text-body {
+  color: rgb(134, 134, 134);
+ }
+
+ /*Text*/
+ .text-title {
+  font-size: 1.5em;
+  font-weight: bold;
+ }
+
+ /*Hover*/
+ .card:hover {
+  border-color: #008bf8;
+  box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.25);
+ }
+// .main {
+//   display: grid;
+//   grid-template-columns: repeat(5, 1.5fr);
+//   grid-template-rows: repeat(5, 4.5fr);
+//   grid-column-gap: 5px;
+//   grid-row-gap: 5px;
+//   }
+
+.card-trip {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  margin: 10px;
+}
+
+.image-hover:hover {
+    transform: scale(1.2); /* Augmente la taille de l'image */
+  transition: transform 0.3s ease; /* Ajoute une transition fluide */
+}
+
+.card-trip > img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-trip h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-trip p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+}
+
+
+.card-trip .card-trip-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.card-trip-infos .card-trip-user {
+  position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 40px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+}
+
+// Smallest device
+@media (min-width: 100px) and (max-width: 575px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }
