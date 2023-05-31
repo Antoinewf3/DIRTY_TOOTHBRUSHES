@@ -1,2 +1,8 @@
-<h1>Booking#new</h1>
-<p>Find me in app/views/booking/new.html.erb</p>
+
+<div data-controller="dynamic-booking-price" data-dynamic-booking-price-price-value="<%= @booking%>">
+  <%= simple_form_for [@toothbrush, @booking] do |f| %>
+    <%= f.input :start_date, as: :string, input_html: { data: { controller: "datepicker" } } %>
+    <%= f.input :end_date,  as: :string, input_html: { data: { controller: "datepicker" }} %>
+    <%= f.submit "Book it now" %>
+  <% end %>
+</div>

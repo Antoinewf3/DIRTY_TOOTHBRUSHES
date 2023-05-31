@@ -1,26 +1,3 @@
-<% if false %>
-<div class="container">
-  <div class="card">
-    <div class="card-img-top">
-      <%= cl_image_tag @toothbrush.photo.key, height: 500, width: 500, crop: :fill, class: "img-fluid rounded-3" %>
-    </div>
-
-    <div class="card-body">
-      <h5 class="card-title">"Titre de la brosse à dents"</h5>
-      <strong>Catégorie :</strong> <%= @toothbrush.category %>
-      <p class="card-text">
-        Description de la brosse à dents fournie par le propriétaire
-      </p>
-      <p><strong>Prix :</strong> <%= @toothbrush.price %></p>
-      <%= render "shared/formtest", task: @toothbrush %>
-      <div class="mb-3">
-        <%= link_to 'Retour à l\'accueil', toothbrushes_path, class: "btn btn-primary rounded-4" %>
-        <%= link_to 'Réserver', new_toothbrush_booking_url(@toothbrush), class: "btn btn-primary rounded-4" %>
-      </div>
-    </div>
-  </div>
-</div>
-<% end %>
 <div class="container">
   <div class="card">
     <div class="row">
@@ -37,12 +14,9 @@
             <p><strong>Prix :</strong> <%= @toothbrush.price %></p>
         </div>
       </div>
-      <div class="col-md-6">
-        <%= render "shared/formtest", task: @toothbrush %>
-      </div>
       <div class="m-2">
         <%= link_to 'Retour à l\'accueil', toothbrushes_path, class: "btn btn-primary rounded-4" %>
-        <%= link_to 'Réserver', new_toothbrush_booking_url(@toothbrush), class: "btn btn-primary rounded-4" %>
+        <%= link_to 'Réserver', new_toothbrush_booking_path(@toothbrush, @booking), class: "btn btn-primary rounded-4" %>
       </div>
     </div>
   </div>

@@ -24,13 +24,14 @@ class ToothbrushesController < ApplicationController
     end
   end
 
-  def edit
-    @toothbrush = Toothbrush.find(params[:id])
-  end
-
   def update
     @toothbrush = Toothbrush.find(params[:id])
-    @toothbrush.update(params[:toothbrush])
+
+    if @toothbrush.update(toothbrush_params)
+      redirect_to dashboard_path, notice: "Toothbrush updated"
+    else
+      render :dasboard, status: :unprocessable_entity
+    end
   end
 
   def destroy
