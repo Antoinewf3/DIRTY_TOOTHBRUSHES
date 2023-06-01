@@ -1,8 +1,17 @@
 class ToothbrushesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   def index
-    @toothbrushes = Toothbrush.all
-    
+    if params[:category] == "Electric"
+      @toothbrushes = Toothbrush.where("category ILIKE ?", "Electric")
+    elsif params[:category] == "Standard"
+      @toothbrushes = Toothbrush.where("category ILIKE ?", "Standard")
+    elsif params[:price] == "ASC"
+      @toothbrushes = Toothbrush.order(:price)
+    elsif params[:price] == "DESC"
+      @toothbrushes = Toothbrush.order(price: :desc)
+    else
+      @toothbrushes = Toothbrush.all
+    end
   end
 
   def show
