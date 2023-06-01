@@ -1,22 +1,49 @@
-<div class="container">
-  <div class="card">
-    <div class="row">
-      <div class="col-md-6 card-body ">
-        <div class="card-img-top">
-            <%= cl_image_tag @toothbrush.photo.key, height: 500, width: 500, crop: :fill, class: "img-fluid rounded-3 " %>
-        </div>
-        <div class="m-2">
-            <h5 class="card-title">"Titre de la brosse à dents"</h5>
-            <strong>Catégorie :</strong> <%= @toothbrush.category %>
-            <p class="card-text">
-            Description de la brosse à dents fournie par le propriétaire
-            </p>
-            <p><strong>Prix :</strong> <%= @toothbrush.price %></p>
-        </div>
+
+<div class="row justify-content-center">
+  <div class="col-10 col-md-4 card h-70">
+    <div class="card-body">
+      <div class="cd-img-top text-center">
+          <%= cl_image_tag @toothbrush.photo.key, height: 400, width: 400, crop: :fill, class: "img-fluid m-4 imgshow" %>
       </div>
       <div class="m-2">
-        <%= link_to 'Retour à l\'accueil', toothbrushes_path, class: "btn btn-primary rounded-4" %>
-        <%= link_to 'Réserver', new_toothbrush_booking_path(@toothbrush, @booking), class: "btn btn-primary rounded-4" %>
+        <h2 class="card-title mb-4"><%= @toothbrush.title %></h2>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <div class="row">
+              <div class="col">
+                <h5 class="m-0">Category:</h5 class="m-0">
+              </div>
+              <div class="col">
+                <h5 class="m-0"><%= @toothbrush.category %></h5 class="m-0">
+              </div>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="row">
+              <div class="col">
+                <h5 class="m-0">Price:</h5 class="m-0">
+              </div>
+              <div class="col">
+                <h5 class="m-0"><%= @toothbrush.price %> €</h5 class="m-0">
+              </div>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="row">
+              <div class="col">
+                <h5 class="m-0">Content:</h5 class="m-0">
+              </div>
+              <div class="col">
+                <h5 class="m-0"><%= @toothbrush.content %></h5 class="m-0">
+              </div>
+            </div>
+          </li>
+        </ul>
       </div>
     </div>
+    <div class="m-2">
+      <%= link_to 'Home', toothbrushes_path, class: "btn rainbow" %>
+      <%= link_to 'Book it', new_toothbrush_booking_path(@toothbrush, @booking), class: "btn rainbow no-hover" %>
+    </div>
   </div>
+</div>
