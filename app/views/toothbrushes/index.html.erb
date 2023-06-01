@@ -3,7 +3,9 @@
     <% @toothbrushes.each do |toothbrush|%>
       <%= link_to toothbrush_path(toothbrush), class: "image-hover" do %>
         <div class="card-trip">
+        <% if toothbrush.photo.attached? %>
           <%= cl_image_tag toothbrush.photo.key, height: 130, width: 180, crop: :fill %>
+        <% end %>
           <div class="card-trip-infos">
             <div>
               <h2> <%=toothbrush.title%> </h2>
