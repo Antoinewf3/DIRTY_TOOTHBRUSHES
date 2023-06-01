@@ -2,7 +2,7 @@
 // general
 
 body {
-	font-family: 'PT Sans Caption',"Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	font-size: 3vh;
 }
 
@@ -22,7 +22,7 @@ body {
 }
 
 #menu-icon {
-  font-family: Geneva, sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-size: 6vh;
 }
 
@@ -41,11 +41,28 @@ body {
 }
 
 .hero-title {
-	max-width: 16em;
+	max-width: 10em;
 	margin: 0;
-	font-size: 8vh;
+	font-size: 14vh;
 	font-weight: bold;
 	line-height: .9;
+  padding-top: 0.5em;
+}
+
+.hero-title span {
+  font-size: 8vh;
+}
+
+.n-hover1:hover {
+  color: rgb(0, 0, 0);
+  transform: scale(1.1);
+  transition: transform 0.6s ease;
+}
+
+.n-hover2:hover {
+  color: rgb(255, 255, 255);
+  transform: scale(1.1);
+  transition: transform 0.6s ease;
 }
 
 	@media only screen and (min-width: 32em) { .hero-title { font-size: 16vh; } }
@@ -53,8 +70,10 @@ body {
 .hero-footer {
 	display: flex;
 	margin-bottom: 1em;
+  padding-bottom: 9em;
   text-decoration: none;
 }
+
 
 .button {
 	padding: .5em .67em;
@@ -65,11 +84,11 @@ body {
   justify-content: center;
 }
 
-	.button-primary {
-		color: black;
-		background-color: white;
-    margin: 0 10px;
-	}
+.button-primary {
+  color: black;
+  background-color: white;
+  margin: 0 10px;
+}
 
 // article
 
