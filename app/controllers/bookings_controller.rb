@@ -10,12 +10,24 @@ class BookingsController < ApplicationController
     @booking.toothbrush = @toothbrush
     @booking.user = current_user
 
+    @booking.status = "pending"
     if @booking.save
-      @booking.status = "booked"
       redirect_to dashboard_path
     else
       render 'toothbrushes/show', status: :unprocessable_entity
     end
+  end
+
+  def accept
+    @booking = Booking.find(params[:id])
+    @booking.update(status: "rented")
+    redirect_to dashboard_path, notice: "Your toothbrush is booked !"
+  end
+
+  def reject
+    @booking = Booking.find(params[:id])
+    @booking.update(status: "available")
+    redirect_to dashboard_path, notice: "Your toothbrush is available !"
   end
 
   private

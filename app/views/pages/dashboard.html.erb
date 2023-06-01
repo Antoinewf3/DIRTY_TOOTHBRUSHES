@@ -3,11 +3,15 @@
   <h2>my Bookings</h2>
   <% @my_bookings.each do |booking| %>
     <%= cl_image_tag booking.toothbrush.photo.key, height: 300, width: 400, crop: :fill %>
+    <%= booking.status %>
   <% end %>
   <% @toothbrushes.each do |toothbrush| %>
     <h2>My toothbrushes</h2>
     <%= toothbrush.title %>
     <%= cl_image_tag toothbrush.photo.key, height: 300, width: 400, crop: :fill %>
+    <%# ajouter sur status par défaut inactive - pending - rented %>
+    <%# push une alerte s'il existe une demande de réservation sur la toothbrush%>
+
     <div class="col-md-6">
       <%= simple_form_for(toothbrush) do |f| %>
         <%= f.input :title %>
@@ -15,11 +19,17 @@
         <%= f.input :price %>
         <%= f.button :submit, "Save", class: 'btn rainbow' %>
     <% end %>
-    <h2>My rented toothbrushes Test</h2>
+    <h2>Manage my bookings</h2>
     <% toothbrush.bookings.each do |booking| %>
       <%= booking.start_date %>
       <%= booking.start_date %>
       <%= cl_image_tag toothbrush.photo.key, height: 300, width: 400, crop: :fill %>
+      <% if booking.status == "pending"%>
+        <%= button_to "accept", accept_path(booking) %>
+        <%= button_to "reject", reject_path(booking) %>
+      <% else %>
+        <%= booking.status %>
+      <% end %>
     <% end %>
   <% end %>
 </div>

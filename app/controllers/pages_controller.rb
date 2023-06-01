@@ -9,7 +9,6 @@ class PagesController < ApplicationController
     @toothbrushes = current_user.toothbrushes
   end
 
-
   private
 
   def toothbrush_params
