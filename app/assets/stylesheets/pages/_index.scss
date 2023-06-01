@@ -1,6 +1,5 @@
 // Import page-specific CSS files here.
 @import "home";
-@import "components/_cardshow";
 
 .container {
   display: flex;
@@ -11,60 +10,15 @@
   align-content: start
 }
 
-.card-index {
-  width: 190px;
-  height: 350px;
-  border-radius: 20px;
-  background: #f5f5f5;
-  position: relative;
-  border: 2px solid #c3c6ce;
-  transition: 0.5s ease-out;
-  overflow: visible;
- }
-
- .card > img {
-  height: 175px;
-  width: 100%;
-  border-radius: 20px;
-  object-fit: cover;
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
 }
 
- .card {
-  color: black;
-  height: 100%;
-  gap: 2.5em;
-  display: grid;
-  place-content: center;
-  border-radius: 20px;
-  padding-block: 3px;
- }
-
- a {
+a {
   text-decoration: none;
  }
-
- .text-body {
-  color: rgb(134, 134, 134);
- }
-
- /*Text*/
- .text-title {
-  font-size: 1.5em;
-  font-weight: bold;
- }
-
- /*Hover*/
- .card:hover {
-  border-color: #008bf8;
-  box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.25);
- }
-// .main {
-//   display: grid;
-//   grid-template-columns: repeat(5, 1.5fr);
-//   grid-template-rows: repeat(5, 4.5fr);
-//   grid-column-gap: 5px;
-//   grid-row-gap: 5px;
-//   }
 
 .card-trip {
   overflow: hidden;
@@ -111,45 +65,4 @@
   right: 16px;
   top: -20px;
   width: 40px;
-}
-
-.cards {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 16px;
-}
-
-// Smallest device
-@media (min-width: 100px) and (max-width: 575px) {
-  .cards {
-    grid-template-columns: 1fr;
-  }
-}
-
-// Small devices (landscape phones, 576px and up)
-@media (min-width: 576px) {
-  .cards {
-    grid-template-columns: 1fr;
-  }
-}
-
-// Medium devices (tablets, 768px and up)
-@media (min-width: 768px) {
-  .cards {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-// Large devices (desktops, 992px and up)
-@media (min-width: 992px) {
-  .cards {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-}
-
-// Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) {
-  .cards {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
 }
