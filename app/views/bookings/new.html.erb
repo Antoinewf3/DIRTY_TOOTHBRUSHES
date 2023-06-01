@@ -1,15 +1,19 @@
+
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 </style>
 <div class="container">
  <div class="my-5">
-    <div data-controller="dynamic-booking-price" data-dynamic-booking-price-price-value="<%= @booking%>">
-      <%= simple_form_for [@toothbrush, @booking] do |f| %>
-      <%= f.input :start_date, as: :string, input_html: { data: { controller: "datepicker" }} %>
-      <%= f.input :end_date,  as: :string, input_html:  { data: { controller: "datepicker" }} %>
-      <div class="position-absolute top-50 start-50 translate-middle">
-      <%= f.submit "Book it" , class: 'btn btn-primary'%>
-    </div>
+<div data-controller="dynamic-booking-price" data-dynamic-booking-price-price-value="<%= @toothbrush.price %>">
+  <%= simple_form_for [@toothbrush, @booking], html: { data: { controller: 'datepicker' }} do |f| %>
+    <%= f.input :start_date, as: :string, input_html: { data: { datepicker_target: 'startDateInput', dynamic_booking_price_target: 'startDateInput', action: 'change->dynamic-booking-price#updatePrice' }  } %>
+    <%= f.input :end_date,  as: :string, input_html: { data: {  datepicker_target: 'endDateInput', dynamic_booking_price_target: 'endDateInput', action: 'change->dynamic-booking-price#updatePrice' } } %>
+    <div class="position-absolute top-50 start-50 translate-middle">
+    <%= f.submit "Book it", class: 'btn btn-primary' %>
+    <p>
+      Total Price: <span data-dynamic-booking-price-target="priceHolder"><%= @toothbrush.price %></span>
+    </p>
+     </div>
   <% end %>
   </div>
-</div>
+ </div>

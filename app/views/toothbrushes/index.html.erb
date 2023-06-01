@@ -1,3 +1,23 @@
+<%= link_to toothbrushes_path(category: "Standard") do %>
+  Standard <i class="fa-solid fa-star"></i>
+<% end %>
+<%= link_to toothbrushes_path(category: "Electric") do %>
+  Electric <i class="fa-solid fa-bolt"></i>
+<% end %>
+
+<%= link_to toothbrushes_path(price: "ASC") do %>
+  price ASC
+<% end %>
+<%= link_to toothbrushes_path(price: "DESC") do %>
+  price DESC
+<% end %>
+<%# <div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Dropdown button
+  </button>
+  <ul class="dropdown-menu">
+    <li><%= link_to "Electric", toothbrushes_path(category: "Electric") %>
+
 <div class="container">
   <div class="cards">
     <% @toothbrushes.each do |toothbrush|%>
