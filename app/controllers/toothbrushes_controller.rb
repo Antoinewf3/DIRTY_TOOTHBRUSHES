@@ -8,8 +8,8 @@ class ToothbrushesController < ApplicationController
     else
       @toothbrushes = Toothbrush.all
     end
-    @toothbrushes_minus = Toothbrush.order(:price)
-    @toothbrushes_plus = Toothbrush.order(price: :desc)
+    @toothbrushes_minus = @toothbrushes.order(:price)
+    @toothbrushes_plus = @toothbrushes.order(price: :desc)
   end
 
   def show

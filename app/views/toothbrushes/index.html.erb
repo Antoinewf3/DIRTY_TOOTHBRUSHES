@@ -1,19 +1,21 @@
+
 <div class="container">
   <div data-controller="toggle-price">
     <div class="d-flex justify-content-around py-5">
       <%= link_to toothbrushes_path(category: "Standard") do %>
-        Standard <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-glass-water-droplet fa-lg" style="color: #1d355d;"></i>
       <% end %>
-      <%= link_to toothbrushes_path(category: "Electric") do %>
-        Electric
-      <% end %>
+      <!-- Button trigger modal -->
+      <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="background-color: transparent; border:none;">
+        <i class="fa-solid fa-bolt fa-shake fa-lg" style="color: #ec5fe1;"></i>
+      </button>
       <label class="switch text-end">
         <input type="checkbox" class="toggle" data-action="change->toggle-price#toggleSwitch" data-toggle-price-target="checkbox">
         <span class="slider"></span>
         <span class="card-side"></span>
       </label>
     </div>
-    <div class="cards" data-toggle-price-target="minusPrice">
+    <div class="cards " data-toggle-price-target="minusPrice">
       <% @toothbrushes_minus.each do |toothbrush|%>
         <%= link_to toothbrush_path(toothbrush), class: "image-hover" do %>
           <div class="card-trip">
@@ -42,6 +44,28 @@
           </div>
         <% end %>
       <% end %>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: #EFA3C8;">
+        <h1 class="modal-title fs-5 text-center text-white" id="staticBackdropLabel" style="flex-grow: 1">⛔️ EXPLICIT CONTENT ⛔️</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+        <div class="modal-body" style="background-color: #FAD3E7;">
+          <p class="modal-title fs-5 lead text-center" id="staticBackdropLabel">Dirty T Electric offers adult content, which is intended for users above 18 years old.</p>
+          <p class="modal-title fs-5 lead text-center" id="staticBackdropLabel">By continuing, you certify that you are over 18 years old.</p>
+        </div>
+      <div class="modal-footer" style="background-color: #FAD3E7;">
+        <%= link_to toothbrushes_path(category: "Electric") do %>
+          <button class="btngay">I certify that I am 18 years old or older - Enter</button>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
