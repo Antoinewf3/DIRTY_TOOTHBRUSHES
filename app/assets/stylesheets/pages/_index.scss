@@ -1,7 +1,6 @@
 // Import page-specific CSS files here.
 @import "home";
 @import "components/_cardshow";
-
 .container {
   display: flex;
   flex-wrap: wrap;
@@ -10,9 +9,6 @@
   align-items: auto;
   align-content: start
 }
-
-
-
 .card {
   color: black;
   height: 100%;
@@ -23,22 +19,18 @@
   padding-block: 3px;
   border: 0;
 }
-
 a {
   text-decoration: none;
   color: none;
 }
-
  .text-body {
   color: rgb(134, 134, 134);
  }
-
  /*Text*/
  .text-title {
   font-size: 1.5em;
   font-weight: 500;
  }
-
  /*Hover*/
  .card:hover {
   box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.25);
@@ -50,7 +42,6 @@ a {
 //   grid-column-gap: 5px;
 //   grid-row-gap: 5px;
 //   }
-
 .card-trip {
   overflow: hidden;
   background: white;
@@ -62,17 +53,16 @@ a {
 .image-hover {
   width: 80%;
 }
+
 .image-hover:hover {
     transform: scale(1.2); /* Augmente la taille de l'image */
   transition: transform 0.3s ease; /* Ajoute une transition fluide */
 }
-
 .card-trip > img {
   height: 200px;
   width: 100%;
   object-fit: cover;
 }
-
 .card-trip h2 {
   font-size: 16px;
   margin: 0;
@@ -83,7 +73,9 @@ a {
   color: black;
 }
 
-
+.card-trip-pricing {
+  font-weight: bold;
+}
 .card-trip .card-trip-infos {
   padding: 16px;
   display: flex;
@@ -99,48 +91,41 @@ a {
 .card-trip-pricing {
   font-weight: bold;
 }
-
 .card-trip-infos .card-trip-user {
   position: absolute;
   right: 16px;
   top: -20px;
   width: 40px;
 }
-
 .cards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
 }
-
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
   .cards {
     grid-template-columns: 1fr;
   }
 }
-
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {
   .cards {
     grid-template-columns: 1fr;
   }
 }
-
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
   .cards {
     grid-template-columns: 1fr 1fr;
   }
 }
-
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
   .cards {
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
-
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
   .cards {

@@ -14,6 +14,11 @@
           <%# <li class="nav-item active"> %>
             <%# <%= link_to "Home", "#", class: "nav-link" %>
           <%# </li> %>
+          <% if current_page?(root_path) || current_page?(dashboard_path) %>
+          <li class="nav-item">
+            <%= link_to "Add", new_toothbrush_path, class:"btn rainbow home-btn-add" %>
+          </li>
+          <% end %>
           <li class="nav-item dropdown">
           <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fa-solid fa-chevron-down" style="color: #2d8cf0"></i>

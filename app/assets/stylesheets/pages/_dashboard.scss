@@ -1,3 +1,4 @@
+
 .container-dashboard {
   width: 85%;
   margin: 0 auto;
@@ -90,4 +91,13 @@
 .container-tooth {
   width: 60%;
   margin: 0 auto;
+}
+  
+.container-db > div {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  align-content: start;
 }
