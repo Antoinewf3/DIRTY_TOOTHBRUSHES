@@ -1,48 +1,47 @@
-<%= link_to toothbrushes_path(category: "Standard") do %>
-  Standard <i class="fa-solid fa-star"></i>
-<% end %>
-<%= link_to toothbrushes_path(category: "Electric") do %>
-  Electric <i class="fa-solid fa-bolt"></i>
-<% end %>
-
-<%= link_to toothbrushes_path(price: "ASC") do %>
-  price ASC
-<% end %>
-<%= link_to toothbrushes_path(price: "DESC") do %>
-  price DESC
-<% end %>
-<%# <div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-    Dropdown button
-  </button>
-  <ul class="dropdown-menu">
-    <li><%= link_to "Electric", toothbrushes_path(category: "Electric") %>
-
 <div class="container">
-  <div class="cards">
-    <% @toothbrushes.each do |toothbrush|%>
-      <%= link_to toothbrush_path(toothbrush), class: "image-hover" do %>
-        <div class="card-trip">
-        <% if toothbrush.photo.attached? %>
-          <%= cl_image_tag toothbrush.photo.key, height: 130, width: 180, crop: :fill %>
-        <% end %>
-          <div class="card-trip-infos">
-            <div>
-              <h2> <%=toothbrush.title%> </h2>
-            </div>
-            <h2 class="card-trip-pricing"><%= toothbrush.price %> €</h2>
-          </div>
-        </div>
+  <div data-controller="toggle-price">
+    <div class="d-flex justify-content-around py-5">
+      <%= link_to toothbrushes_path(category: "Standard") do %>
+        Standard <i class="fa-solid fa-star"></i>
       <% end %>
-    <% end %>
+      <%= link_to toothbrushes_path(category: "Electric") do %>
+        Electric
+      <% end %>
+      <label class="switch text-end">
+        <input type="checkbox" class="toggle" data-action="change->toggle-price#toggleSwitch" data-toggle-price-target="checkbox">
+        <span class="slider"></span>
+        <span class="card-side"></span>
+      </label>
+    </div>
+    <div class="cards" data-toggle-price-target="minusPrice">
+      <% @toothbrushes_minus.each do |toothbrush|%>
+        <%= link_to toothbrush_path(toothbrush), class: "image-hover" do %>
+          <div class="card-trip">
+          <% if toothbrush.photo.attached? %>
+            <%= cl_image_tag toothbrush.photo.key, height: 130, width: 180, crop: :fill, class: "img-home" %>
+          <% end %>
+            <div class="card-trip-infos">
+              <h2 class="card-trip-title"> <%=toothbrush.title%> </h2>
+              <h2 class="card-trip-pricing"><%= toothbrush.price %> €</h2>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="cards" data-toggle-price-target="plusPrice">
+      <% @toothbrushes_plus.each do |toothbrush|%>
+        <%= link_to toothbrush_path(toothbrush), class: "image-hover" do %>
+          <div class="card-trip">
+          <% if toothbrush.photo.attached? %>
+            <%= cl_image_tag toothbrush.photo.key, height: 130, width: 180, crop: :fill, class: "img-home" %>
+          <% end %>
+            <div class="card-trip-infos">
+              <h2 class="card-trip-title"> <%=toothbrush.title%> </h2>
+              <h2 class="card-trip-pricing"><%= toothbrush.price %> €</h2>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
-
-
-<%# <div class="card">
-    <p class="text-title">Card title</p>
-    <p class="text-body">description</p>
-    <div class="price"></div>
-  </div>
-  <button class="card-button">book</button>
-</div> %>
