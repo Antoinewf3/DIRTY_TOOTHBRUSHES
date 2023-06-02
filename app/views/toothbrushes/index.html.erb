@@ -28,7 +28,7 @@
         <% end %>
       <% end %>
     </div>
-    <div class="cards" data-toggle-price-target="plusPrice">
+    <div class="cards d-none" data-toggle-price-target="plusPrice">
       <% @toothbrushes_plus.each do |toothbrush|%>
         <%= link_to toothbrush_path(toothbrush), class: "image-hover" do %>
           <div class="card-trip">
