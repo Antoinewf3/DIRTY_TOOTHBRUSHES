@@ -1,35 +1,118 @@
+<% if false %>
+
+<div class="nav d-flex flex-column">
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link active" data-toggle="tab" href="#bookings">My Bookings</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#toothbrushes">My Toothbrushes</a>
+    </li>
+  </ul>
+  <div class="tab-content">
+    <div id="mybookings" class="tab-pane fade show active"><br>
+      <div class="d-flex flex-column align-items-center">
+        <% @my_bookings.each do |booking| %>
+          <div class="card-trip">
+            <%= cl_image_tag booking.toothbrush.photo.key, height: 300, width: 400, crop: :fill %>
+          </div>
+          <div class="card-trip-infos">
+            <%= booking.status %>
+            <%= booking.start_date %>
+            <%= booking.end_date %>
+            <% end %>
+          </div>
+      </div>
+    </div>
+    <div id="toothbrushes" class="tab-pane fade">
+      <% @toothbrushes.each do |toothbrush| %>
+        <div class="row justify-content-center">
+          <div class="col-4">
+            <%= toothbrush.title %>
+            <%= cl_image_tag toothbrush.photo.key, height: 300, width: 400, crop: :fill %>
+          </div>
+            <div class="col-4">
+              <%= simple_form_for(toothbrush) do |f| %>
+                <%= f.input :title %>
+                <%= f.input :category, collection: ['Electric', 'Standard'], include_blank: 'Select Category'%>
+                <%= f.input :price %>
+                <%= f.button :submit, "Save", class: 'btn rainbow' %>
+              <% end %>
+            </div>
+        </div>
+        <h2>Manage my bookings</h2>
+        <% toothbrush.bookings.each do |booking| %>
+          <%= booking.start_date %>
+          <%= booking.start_date %>
+          <%= cl_image_tag toothbrush.photo.key, height: 300, width: 400, crop: :fill %>
+          <% if booking.status == "pending"%>
+            <%= button_to "accept", accept_path(booking) %>
+            <%= button_to "reject", reject_path(booking) %>
+          <% else %>
+            <%= booking.status %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
+<% end %>
+
 <div class="container">
   <h1 class="text-center">Welcome to your Dashboard</h1>
-  <h2>my Bookings</h2>
-  <% @my_bookings.each do |booking| %>
-    <%= cl_image_tag booking.toothbrush.photo.key, height: 300, width: 400, crop: :fill %>
-    <%= booking.status %>
-  <% end %>
-  <% @toothbrushes.each do |toothbrush| %>
-    <h2>My toothbrushes</h2>
-    <%= toothbrush.title %>
-    <%= cl_image_tag toothbrush.photo.key, height: 300, width: 400, crop: :fill %>
-    <%# ajouter sur status par défaut inactive - pending - rented %>
-    <%# push une alerte s'il existe une demande de réservation sur la toothbrush%>
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link active" data-toggle="tab" href="#bookings">My Bookings</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#toothbrushes">My Toothbrushes</a>
+    </li>
+  </ul>
 
-    <div class="col-md-6">
-      <%= simple_form_for(toothbrush) do |f| %>
-        <%= f.input :title %>
-        <%= f.input :category, collection: ['Electric', 'Standard'], include_blank: 'Select Category'%>
-        <%= f.input :price %>
-        <%= f.button :submit, "Save", class: 'btn rainbow' %>
-    <% end %>
-    <h2>Manage my bookings</h2>
-    <% toothbrush.bookings.each do |booking| %>
-      <%= booking.start_date %>
-      <%= booking.start_date %>
-      <%= cl_image_tag toothbrush.photo.key, height: 300, width: 400, crop: :fill %>
-      <% if booking.status == "pending"%>
-        <%= button_to "accept", accept_path(booking) %>
-        <%= button_to "reject", reject_path(booking) %>
-      <% else %>
+  <div class="tab-content">
+    <div id="bookings" class="tab-pane fade show active">
+      <% @my_bookings.each do |booking| %>
+        <%= cl_image_tag booking.toothbrush.photo.key, height: 300, width: 400, crop: :fill %>
         <%= booking.status %>
       <% end %>
-    <% end %>
-  <% end %>
+    </div>
+
+    <div id="toothbrushes" class="tab-pane fade">
+      <h2>My Toothbrushes</h2>
+      <div class="cards">
+        <% @toothbrushes.each do |toothbrush|%>
+          <%= link_to toothbrush_path(toothbrush), class: "image-hover" do %>
+            <div class="card-trip">
+              <%= cl_image_tag toothbrush.photo.key, height: 130, width: 180, crop: :fill %>
+              <div class="card-trip-infos">
+                <div>
+                  <h2> <%=toothbrush.title%> </h2>
+                </div>
+                <h2 class="card-trip-pricing"><%= toothbrush.price %> €</h2>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+
+      <h2>Manage My Bookings</h2>
+      <% @toothbrushes.each do |toothbrush| %>
+        <%= toothbrush.bookings.each do |booking| %>
+          <div class="card mb-3">
+            <div class="card-body">
+              <h5 class="card-title">Start Date: <%= booking.start_date %></h5>
+              <h5 class="card-title">End Date: <%= booking.end_date %></h5>
+              <%= cl_image_tag toothbrush.photo.key, height: 300, width: 400, crop: :fill, class: 'card-img-top' %>
+              <% if booking.status == "pending" %>
+                <%= button_to "Accept", accept_path(booking), method: :patch, class: 'btn btn-primary' %>
+                <%= button_to "Reject", reject_path(booking), method: :patch, class: 'btn btn-danger' %>
+              <% else %>
+                <p class="card-text">Booking Status: <%= booking.status %></p>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
 </div>
