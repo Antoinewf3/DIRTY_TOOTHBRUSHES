@@ -61,7 +61,7 @@
       <%= simple_form_for [@toothbrush, @booking], html: { data: { controller: 'datepicker' }} do |f| %>
       <div class="modal-body">
         <div data-controller="dynamic-booking-price" data-dynamic-booking-price-price-value="<%= @toothbrush.price %>">
-          <%= f.input :start_date, as: :string, input_html: { data: { datepicker_target: 'startDateInput', dynamic_booking_price_target: 'startDateInput', action: 'change->dynamic-booking-price#updatePrice' }  } %>
+          <%= f.input :start_date, as: :string, input_html: { data: { datepicker_target: 'startDateInput', dynamic_booking_price_target: 'startDateInput', action: 'change->dynamic-booking-price#updatePrice' }, class: "round" } %>
           <%= f.input :end_date,  as: :string, input_html: { data: {  datepicker_target: 'endDateInput', dynamic_booking_price_target: 'endDateInput', action: 'change->dynamic-booking-price#updatePrice' } } %>
           <p>
             <span data-dynamic-booking-price-target="priceHolder"></span>
@@ -69,9 +69,7 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn rainbow show-btn" data-bs-dismiss="modal">Close</button>
-        <%= f.submit "Book it", class: 'btn rainbow show-btn'%>
-        </div>
+        <%= f.submit "Book now !", class: 'btn rainbow show-btn' %>
       </div>
       <% end %>
     </div>
