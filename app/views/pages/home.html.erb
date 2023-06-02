@@ -1,11 +1,12 @@
 <section class="hero">
   <header id="header">
   </header>
-  <header class="hero-header">
-    <h1 class="hero-title">Like Toothbrushes ? <span>Wanna try a new experience...</span></h1>
+  <header class="hero-header d-flex flex-column justify-content-center">
+    <h1 class="hero-title">Like<span>Toothbrushes ?</span><h1>
+    <h1 class="hero-subtitle" data-controller="typed"></h1>
   </header>
   <footer class="hero-footer">
-    <%= link_to 'View toothbrushes available', toothbrushes_path, class: "button button-primary n-hover1 rounded" %>
-    <%= link_to 'Rent my toothbrush', dashboard_path, class: "button mx-3 n-hover2 rounded" %>
+    <%= link_to 'View Toothbrushes', toothbrushes_path, class: "btn rainbow home-btn" %>
+    <%= link_to 'Rent my Toothbrush', new_toothbrush_path, class: "btn rainbow home-btn" %>
   </footer>
 </section>

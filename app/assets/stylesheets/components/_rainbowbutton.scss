@@ -1,12 +1,9 @@
 /* this button is inspired from this -- https://www.newline.co/pricing */
 .btn {
-  width: 6.5em;
-  height: 2.3em;
   margin: 0.5em;
-  background: rgb(5, 8, 204);
+  background: #2d8cf0;
   color: white;
   border: none;
-  border-radius: 1.3em;
   font-size: 20px;
   font-weight: bold;
   cursor: pointer;
@@ -15,8 +12,18 @@
   overflow: hidden;
 }
 
+.home-btn {
+  padding: 1em;
+  border-radius: 1.8em;
+}
+
+.show-btn {
+  padding: 0.6em 1.5em;
+  border-radius: 1.8em;
+}
+
 .rainbow:hover {
-  color: rgb(5, 8, 204);
+  color: #2d8cf0;
 }
 
 .rainbow:after {

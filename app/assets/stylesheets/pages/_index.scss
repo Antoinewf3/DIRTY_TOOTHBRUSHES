@@ -10,22 +10,52 @@
   align-content: start
 }
 
-.cards {
+
+
+.card {
+  color: black;
+  height: 100%;
+  gap: 2.5em;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 16px;
+  place-content: center;
+  border-radius: 20px;
+  padding-block: 3px;
+  border: 0;
 }
 
 a {
   text-decoration: none;
+  color: none;
+}
+
+ .text-body {
+  color: rgb(134, 134, 134);
  }
+
+ /*Text*/
+ .text-title {
+  font-size: 1.5em;
+  font-weight: bold;
+ }
+
+ /*Hover*/
+ .card:hover {
+  box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.25);
+ }
+// .main {
+//   display: grid;
+//   grid-template-columns: repeat(5, 1.5fr);
+//   grid-template-rows: repeat(5, 4.5fr);
+//   grid-column-gap: 5px;
+//   grid-row-gap: 5px;
+//   }
 
 .card-trip {
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  border-radius: 5px;
   margin: 10px;
+  border-radius: 20px;
 }
 
 .image-hover:hover {
@@ -41,14 +71,15 @@ a {
 
 .card-trip h2 {
   font-size: 16px;
-  font-weight: bold;
   margin: 0;
 }
 
-.card-trip p {
-  font-size: 12px;
-  opacity: .7;
-  margin: 0;
+.card-trip-title {
+  font-weight: 500;
+}
+
+.card-trip-pricing {
+  font-weight: bold;
 }
 
 
