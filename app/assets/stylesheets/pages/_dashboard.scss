@@ -1,8 +1,103 @@
+
+.container-dashboard {
+  width: 85%;
+  margin: 0 auto;
+}
+
+.card-trip .card-trip-infos-dashboard {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.card-trip-infos-dashboard {
+  color: #2d8cf0;
+}
+
+.card-trip-pricing {
+  font-weight: bold;
+}
+
+.card-trip-infos-dashboard .card-trip-user {
+  position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 40px;
+}
+
+.card-trip-title {
+  font-weight: 500;
+  color: black;
+}
+
+.card-trip > img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.btn-game {
+  /* Variables */
+  --button_radius: 0.75em;
+  --button_color: #e8e8e8;
+  --button_outline_color: #2d8cf0;
+  font-size: 17px;
+  font-weight: bold;
+  border: none;
+  border-radius: var(--button_radius);
+  background: var(--button_outline_color);
+  width: 17em;
+}
+
+.button_top {
+  display: block;
+  box-sizing: border-box;
+  border: 2px solid var(--button_outline_color);
+  border-radius: var(--button_radius);
+  padding: 0.75em 1.5em;
+  background: #2d8cf0;
+  color: white;
+  transform: translateY(-0.2em);
+  transition: transform 0.1s ease;
+}
+
+.btn-game:hover .button_top {
+  /* Pull the button upwards when hovered */
+  transform: translateY(-0.33em);
+}
+
+.btn-game:active .button_top {
+  /* Push the button downwards when pressed */
+  transform: translateY(0);
+}
+
+.button_top:hover {
+  color: #ffffff;
+
+}
+
+.button_top:active {
+  color: #2d8cf0;
+  background-color: white;
+}
+
+.nav {
+  --bs-nav-link-color: #2d8cf0;
+  --bs-nav-link-hover-color: #2d8cf0;
+}
+
+.container-tooth {
+  width: 60%;
+  margin: 0 auto;
+}
+  
 .container-db > div {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: start;
   align-items: center;
-  align-content: start
+  align-content: start;
 }

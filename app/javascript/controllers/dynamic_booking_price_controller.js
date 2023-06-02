@@ -17,7 +17,7 @@ export default class extends Controller {
   }
 
   #setPriceValue(price, days) {
-    this.priceHolderTarget.innerText = `Total Price is ${price} € for ${days} day(s)`
+    this.priceHolderTarget.innerHTML = `<h4><em>Only <b style="color:#2d8cf0">${price} €</b> for <b style="color:#2d8cf0">${days} day(s)</b></em></h4>`
   }
 
   #diffInDays(startDate, endDate) {
