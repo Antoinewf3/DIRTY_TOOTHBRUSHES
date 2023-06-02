@@ -1,12 +1,12 @@
 
 <div class="row justify-content-center">
-  <div class="col-10 col-md-4 card h-70">
+  <div class="col-10 col-md-4 card shadow zoom">
     <div class="card-body">
+      <h2 class="card-title mb-4 text-center title-blue mt-2 fw-bold"><%= @toothbrush.title %></h2>
       <div class="cd-img-top text-center">
           <%= cl_image_tag @toothbrush.photo.key, height: 400, width: 400, crop: :fill, class: "img-fluid m-4 imgshow" %>
       </div>
       <div class="m-2">
-        <h2 class="card-title mb-4"><%= @toothbrush.title %></h2>
         <ul class="list-group list-group-flush">
           <li class="list-group-item">
             <div class="row">
@@ -42,8 +42,37 @@
       </div>
     </div>
     <div class="m-2">
-      <%= link_to 'Home', toothbrushes_path, class: "btn rainbow" %>
-      <%= link_to 'Book it', new_toothbrush_booking_path(@toothbrush, @booking), class: "btn rainbow no-hover" %>
+      <%= link_to 'Home', toothbrushes_path, class: "btn rainbow show-btn" %>
+      <button type="button" class="btn rainbow show-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Book it
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <%= simple_form_for [@toothbrush, @booking], html: { data: { controller: 'datepicker' }} do |f| %>
+      <div class="modal-body">
+        <div data-controller="dynamic-booking-price" data-dynamic-booking-price-price-value="<%= @toothbrush.price %>">
+          <%= f.input :start_date, as: :string, input_html: { data: { datepicker_target: 'startDateInput', dynamic_booking_price_target: 'startDateInput', action: 'change->dynamic-booking-price#updatePrice' }  } %>
+          <%= f.input :end_date,  as: :string, input_html: { data: {  datepicker_target: 'endDateInput', dynamic_booking_price_target: 'endDateInput', action: 'change->dynamic-booking-price#updatePrice' } } %>
+          <p>
+            <span data-dynamic-booking-price-target="priceHolder"></span>
+          </p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn rainbow show-btn" data-bs-dismiss="modal">Close</button>
+        <%= f.submit "Book it", class: 'btn rainbow show-btn' %>
+      </div>
+      <% end %>
     </div>
   </div>
 </div>

@@ -5,19 +5,17 @@ class ToothbrushesController < ApplicationController
       @toothbrushes = Toothbrush.where("category ILIKE ?", "Electric")
     elsif params[:category] == "Standard"
       @toothbrushes = Toothbrush.where("category ILIKE ?", "Standard")
-    elsif params[:price] == "ASC"
-      @toothbrushes = Toothbrush.order(:price)
-    elsif params[:price] == "DESC"
-      @toothbrushes = Toothbrush.order(price: :desc)
     else
       @toothbrushes = Toothbrush.all
     end
+    @toothbrushes_minus = Toothbrush.order(:price)
+    @toothbrushes_plus = Toothbrush.order(price: :desc)
   end
 
   def show
     # @review = Review.new
     @toothbrush = Toothbrush.find(params[:id])
-    @booking = Booking.new(toothbrush: @toothbrush)
+    @booking = Booking.new
   end
 
   def new

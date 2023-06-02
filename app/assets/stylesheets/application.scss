@@ -10,4 +10,8 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
-@import "pages/new_bookings"
+@import "pages/new_bookings";
+
+body {
+  background-color: rgb(255, 255, 255);
+}
