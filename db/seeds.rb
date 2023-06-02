@@ -71,6 +71,9 @@ titles = [
   )
   puts "Created user: #{user.email}"
 end
+User.create(
+  email: "titouanhir"
+)
 
 url_electric.each_with_index do |url, index|
   toothbrush = Toothbrush.create!(
