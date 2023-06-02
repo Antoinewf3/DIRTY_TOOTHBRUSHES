@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon shadow">
   <div class="container-fluid">
     <%= link_to "/", class: "navbar-brand" do %>
       <%= image_tag "https://res.cloudinary.com/dhngy6nkx/image/upload/v1685535652/toothbrush_logo.png", style: "transform: scaleX(-1) rotate(-22.5deg);" %>
@@ -16,7 +16,7 @@
           <%# </li> %>
           <li class="nav-item dropdown">
           <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%= image_tag "https://res.cloudinary.com/dhngy6nkx/image/upload/v1685538169/menu_icon_animated.gif", class: "avatar", alt: "dropdown menu" %>
+            <i class="fa-solid fa-chevron-down title-blue"></i>
           </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "DashBoard", "dashboard", class: "dropdown-item" %>

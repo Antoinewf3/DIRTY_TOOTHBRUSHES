@@ -4,11 +4,8 @@ import Typed from "typed.js";
 // Connects to data-controller="typed"
 export default class extends Controller {
 
-  static values = {
-    sentences: Array
-  }
   connect() {
-    const options = {strings: this.senetencesValue, typeSpeed: 60}
+    const options = { strings: ["Wanna try a new experience..."], typeSpeed: 60, showCursor: false }
     new Typed(this.element, options)
   }
 }
